@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SAMANTHA - A simple text display page">
+    <title>SAMANTHA</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="container">
+        <div class="text-wrapper">
+            <h1 class="main-text" tabindex="0" role="banner">
+                <span class="letter" style="--delay: 0s">S</span>
+                <span class="letter" style="--delay: 0.1s">A</span>
+                <span class="letter" style="--delay: 0.2s">M</span>
+                <span class="letter" style="--delay: 0.3s">A</span>
+                <span class="letter" style="--delay: 0.4s">N</span>
+                <span class="letter" style="--delay: 0.5s">T</span>
+                <span class="letter" style="--delay: 0.6s">H</span>
+                <span class="letter" style="--delay: 0.7s">A</span>
+            </h1>
+            <div class="glow-effect" aria-hidden="true"></div>
+        </div>
+    </main>
+
+    <script>
+        // Add keyboard navigation and accessibility enhancements
+        document.addEventListener('DOMContentLoaded', function() {
+            const mainText = document.querySelector('.main-text');
+            
+            // Add focus handling for accessibility
+            mainText.addEventListener('focus', function() {
+                this.classList.add('focused');
+            });
+            
+            mainText.addEventListener('blur', function() {
+                this.classList.remove('focused');
+            });
+            
+            // Add click interaction for better UX
+            mainText.addEventListener('click', function() {
+                this.classList.add('clicked');
+                setTimeout(() => {
+                    this.classList.remove('clicked');
+                }, 600);
+            });
+            
+            // Prefers reduced motion handling
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.body.classList.add('reduce-motion');
+            }
+        });
+    </script>
+</body>
+</html>
